@@ -1390,39 +1390,50 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === CLEAN RESPONSIVE NAV (FINAL FIX) === */
+/* === FINAL NAV FIX (LOGO RIGHT, NO OVERFLOW) === */
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap; /* keep logo + links on same row */
+  flex-wrap: nowrap;          /* keep logo + links on one row */
+  padding: 20px 20px;         /* safe padding */
+  box-sizing: border-box;
 }
 
-/* NAV LINKS FIX */
+/* LINKS ON LEFT */
 .nav-links {
   display: flex;
-  flex-wrap: wrap;          /* allow wrapping */
-  justify-content: flex-end;
+  flex-wrap: wrap;            /* allows wrapping when needed */
   gap: 12px;
-  max-width: 70%;           /* prevent pushing past screen */
+  max-width: 70%;             /* prevents pushing into logo */
 }
 
-/* REMOVE breaking spacing */
+/* REMOVE OLD SPACING THAT CAUSED OVERFLOW */
 .nav-links a {
-  margin: 0;                /* IMPORTANT: kills overflow */
+  margin: 0;
   white-space: nowrap;
 }
 
-/* MOBILE CONTROL */
+/* LOGO ON RIGHT */
+.logo {
+  order: 2;                   /* forces logo to the right */
+}
+
+/* LINKS ON LEFT */
+.nav-links {
+  order: 1;
+}
+
+/* MOBILE TUNING */
 @media (max-width: 900px) {
 
   .nav {
-    padding: 15px 20px;     /* reduce side padding */
+    padding: 15px;
   }
 
   .nav-links {
-    max-width: 65%;         /* forces wrap instead of overflow */
+    max-width: 65%;           /* forces wrapping sooner */
   }
 
 }
