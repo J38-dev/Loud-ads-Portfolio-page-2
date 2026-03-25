@@ -1300,47 +1300,44 @@ font-size:14px;
 
 
 
-/* ================= GLOBAL RESPONSIVE & NO HORIZONTAL SCROLL ================= */
+/* ================= MOBILE NAV & CENTERING FIX ================= */
 
 html, body {
   width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* prevents horizontal scroll anywhere */
+  overflow-x: hidden; /* lock horizontal scroll */
 }
 
-* {
-  box-sizing: border-box; /* already set, but reinforces for any children */
-}
-
-/* NAVBAR RESPONSIVE FIX */
 .nav {
-  flex-wrap: wrap; /* allows items to wrap on very small screens */
+  flex-wrap: wrap; /* allow items to wrap on very small screens */
+  justify-content: center; /* center everything */
+  padding: 12px 10px !important; /* reduce side padding on tiny screens */
+}
+
+.nav .logo {
+  margin-bottom: 10px; /* push logo above links if wrapped */
 }
 
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center; /* center links */
+  gap: 15px; /* spacing between links */
 }
 
 .nav-links a {
-  word-break: break-word; /* prevent long text from overflowing */
+  margin-left: 0 !important; /* reset original margin that caused overflow */
+  text-align: center;
+  white-space: nowrap; /* prevent breaking text */
+  word-break: normal; 
 }
 
-/* HERO & SECTIONS */
-.hero, section {
-  width: 100%;
+/* HERO AND SECTIONS CENTERING */
+.hero, .portfolio, .featured, .services, .contact, .brands, .reviews {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* all text centered */
   padding-left: 5%;
   padding-right: 5%;
-}
-
-.hero-title, .hero-sub {
-  word-break: break-word;
-}
-
-.portfolio, .featured, .services, .contact, .brands, .reviews {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 /* IMAGE RESPONSIVE FIXES */
@@ -1348,13 +1345,15 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* MASONRY / GRID */
+/* MASONRY, CASE IMAGES, CLIENT IMAGES, BRANDS CENTERING */
 .masonry, .case-images, .client-images, .brands-container {
+  justify-content: center;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
 }
 
 /* FORCE NO SCROLL ON MOBILE */
@@ -1362,19 +1361,20 @@ body, html {
   touch-action: pan-x pan-y;
 }
 
-/* EXTRA SAFETY FOR LONG CONTENT */
-* {
-  min-width: 0; /* prevents flex/grid children from exceeding parent width */
-}
-
-/* SPECIFIC NAV ON TINY PHONES */
-@media (max-width: 400px) {
+/* SMALL PHONES (<600px) NAV FIX */
+@media (max-width: 600px) {
   .nav {
-    padding: 10px 10px;
+    flex-direction: column; /* stack logo above links */
+    padding: 10px 10px !important;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 12px;
   }
 
   .nav-links a {
-    margin-left: 10px;
-    font-size: 12px;
+    font-size: 14px; 
+    margin: 0; /* no extra margin */
   }
 }
