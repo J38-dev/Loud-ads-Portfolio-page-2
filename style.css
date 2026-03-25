@@ -1390,20 +1390,38 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Mobile nav fix */
+/* === FIX NAV OVERFLOW (FINAL) === */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;              /* allow spacing without overflow */
+  padding: 20px 20px;     /* reduce side padding ONLY on mobile */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;        /* KEY: allows links to go to next line */
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.nav-links a {
+  margin: 0;              /* REMOVE margin-left that breaks layout */
+  white-space: nowrap;
+}
+
+/* ONLY affect mobile */
 @media (max-width: 900px) {
   .nav {
-    padding-left: 20px;  /* reduce side padding */
-    padding-right: 20px;
+    padding: 15px 15px;
   }
 
-  .nav-links a {
-    margin-left: 10px;   /* reduce spacing between links */
-    font-size: 14px;     /* optional: smaller text if needed */
-  }
-
-  .nav ul {
-    flex-wrap: wrap;      /* allow links to move to next line if needed */
-    justify-content: flex-end; /* keep links aligned nicely */
+  .nav-links {
+    flex: 1;              /* allow it to shrink properly */
   }
 }
