@@ -1385,31 +1385,25 @@ html, body {
     overflow-x: hidden;
 }
 
-@media (max-width: 900px) {
-    .nav {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .nav .logo {
-        max-width: 50%; /* shrink logo to fit smaller screens */
-        height: auto;
-    }
-
-    .nav-links a {
-        margin-left: 15px; /* smaller gap between links */
-        font-size: 14px;    /* shrink text if needed */
-    }
-
-    .nav ul {
-        flex-wrap: wrap;    /* allow links to wrap to next line if too wide */
-        justify-content: flex-end; /* optional, keeps links aligned right */
-    }
+/* Ensure no horizontal scroll */
+html, body {
+  overflow-x: hidden;
 }
 
-.nav,
-.nav ul,
-.nav .logo {
-    max-width: 100%;
-    box-sizing: border-box;
+/* Mobile nav fix */
+@media (max-width: 900px) {
+  .nav {
+    padding-left: 20px;  /* reduce side padding */
+    padding-right: 20px;
+  }
+
+  .nav-links a {
+    margin-left: 10px;   /* reduce spacing between links */
+    font-size: 14px;     /* optional: smaller text if needed */
+  }
+
+  .nav ul {
+    flex-wrap: wrap;      /* allow links to move to next line if needed */
+    justify-content: flex-end; /* keep links aligned nicely */
+  }
 }
