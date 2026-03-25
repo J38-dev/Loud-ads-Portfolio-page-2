@@ -1300,81 +1300,82 @@ font-size:14px;
 
 
 
-/* ================= MOBILE NAV & CENTERING FIX ================= */
+/* ================= MOBILE FIX: CENTER IMAGES & REMOVE HORIZONTAL SCROLL ================= */
 
 html, body {
+  overflow-x: hidden; /* prevent any horizontal scroll */
   width: 100%;
-  overflow-x: hidden; /* lock horizontal scroll */
 }
 
-.nav {
-  flex-wrap: wrap; /* allow items to wrap on very small screens */
-  justify-content: center; /* center everything */
-  padding: 12px 10px !important; /* reduce side padding on tiny screens */
-}
-
-.nav .logo {
-  margin-bottom: 10px; /* push logo above links if wrapped */
-}
-
-.nav-links {
+.case-images {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* center links */
-  gap: 15px; /* spacing between links */
+  flex-direction: column; /* stack all images on mobile */
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  padding: 0 5%; /* small side padding */
+  box-sizing: border-box;
+  overflow: hidden; /* prevent any accidental overflow */
 }
 
-.nav-links a {
-  margin-left: 0 !important; /* reset original margin that caused overflow */
-  text-align: center;
-  white-space: nowrap; /* prevent breaking text */
-  word-break: normal; 
-}
-
-/* HERO AND SECTIONS CENTERING */
-.hero, .portfolio, .featured, .services, .contact, .brands, .reviews {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center; /* all text centered */
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-/* IMAGE RESPONSIVE FIXES */
-img {
+.desktop-stack {
+  display: flex;
+  flex-direction: column; /* stack first 2 images vertically */
+  align-items: center;
+  gap: 15px;
+  width: 100%;
   max-width: 100%;
+}
+
+.desktop-stack img,
+.case-images > img:not(.desktop-stack img) {
+  width: 100%;       /* images take full container width */
+  max-width: 100%;   /* never overflow */
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  margin: 0 auto;    /* center images */
 }
 
-/* MASONRY, CASE IMAGES, CLIENT IMAGES, BRANDS CENTERING */
-.masonry, .case-images, .client-images, .brands-container {
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
+.live-project-btn {
+  width: auto;            /* keep rectangular shape */
+  min-width: 200px;       /* ensure decent size */
+  max-width: 100%;        /* fit within container */
+  padding: 16px 36px;     /* same as desktop */
+  text-align: center;
+  display: inline-block;
+  margin: 10px auto 25px; /* center horizontally */
 }
 
-/* FORCE NO SCROLL ON MOBILE */
-body, html {
-  touch-action: pan-x pan-y;
+/* MOBILE RESPONSIVE BELOW 1000px */
+@media (max-width: 1000px) {
+  .case-images,
+  .desktop-stack {
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-wrap: nowrap;
+  }
 }
 
-/* SMALL PHONES (<600px) NAV FIX */
+/* EXTRA SAFETY FOR SMALL PHONES */
 @media (max-width: 600px) {
-  .nav {
-    flex-direction: column; /* stack logo above links */
-    padding: 10px 10px !important;
+  .case-images {
+    padding-left: 5%;
+    padding-right: 5%;
+    gap: 20px;
   }
 
-  .nav-links {
-    justify-content: center;
-    gap: 12px;
+  .desktop-stack img {
+    max-width: 100%;
   }
 
-  .nav-links a {
-    font-size: 14px; 
-    margin: 0; /* no extra margin */
+  .case-images > img:not(.desktop-stack img) {
+    max-width: 100%;
+  }
+
+  .live-project-btn {
+    padding: 16px 36px;
+    margin: 10px auto 25px;
   }
 }
