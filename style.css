@@ -1390,38 +1390,103 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === FIX NAV OVERFLOW (FINAL) === */
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;              /* allow spacing without overflow */
-  padding: 20px 20px;     /* reduce side padding ONLY on mobile */
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;        /* KEY: allows links to go to next line */
-  justify-content: center;
-  gap: 10px;
-  max-width: 100%;
-}
-
-.nav-links a {
-  margin: 0;              /* REMOVE margin-left that breaks layout */
-  white-space: nowrap;
-}
-
-/* ONLY affect mobile */
-@media (max-width: 900px) {
+/* ================= NAVBAR RESPONSIVE ================= */
+@media (max-width: 768px) {
   .nav {
-    padding: 15px 15px;
+    padding: 16px 10px; /* smaller padding so it fits */
+    flex-wrap: wrap; /* allow wrapping if necessary */
+  }
+
+  .logo {
+    height: 50px; /* smaller logo */
   }
 
   .nav-links {
-    flex: 1;              /* allow it to shrink properly */
+    display: flex;
+    flex-wrap: wrap; /* wrap links */
+    justify-content: flex-end;
+    gap: 12px; /* consistent spacing between links */
+    width: 100%; /* full width so links wrap nicely */
+    margin-top: 10px; /* optional spacing below logo */
+  }
+
+  .nav-links a {
+    font-size: 14px; /* smaller font */
+    text-align: center; /* centers links on small devices */
+    padding: 5px 0;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column; /* stack logo and links vertically */
+    align-items: flex-start;
+    padding: 12px 10px;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    margin-left: 0;
+  }
+}
+
+/* ================= GLOBAL FIX FOR NO HORIZONTAL SCROLL ================= */
+html, body {
+  overflow-x: hidden; /* prevent horizontal scrolling globally */
+}
+
+/* ================= NAVBAR RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .nav {
+    padding: 16px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* keeps logo left, links right */
+    align-items: center;
+    width: 100%; /* ensure navbar doesn't overflow */
+    box-sizing: border-box;
+  }
+
+  .logo {
+    height: 50px;
+    max-width: 50%; /* prevent logo from stretching too much */
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%; /* ensures links wrap within screen */
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    white-space: nowrap; /* prevents links from breaking weirdly */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 10px;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
   }
 }
