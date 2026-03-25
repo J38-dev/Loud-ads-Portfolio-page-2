@@ -1385,44 +1385,31 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Nav container */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* allow wrapping on small screens */
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
+@media (max-width: 900px) {
+    .nav {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-/* Nav links */
-.nav ul {
-    display: flex;
-    flex-wrap: wrap; /* wrap links if they overflow */
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+    .nav .logo {
+        max-width: 50%; /* shrink logo to fit smaller screens */
+        height: auto;
+    }
 
-/* Nav link style */
-.nav ul li a {
-    text-decoration: none;
-    color: #fff; /* keep your color */
-    font-weight: 500;
-    white-space: nowrap; /* prevent breaking words */
-}
+    .nav-links a {
+        margin-left: 15px; /* smaller gap between links */
+        font-size: 14px;    /* shrink text if needed */
+    }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
     .nav ul {
-        justify-content: center; /* center links on small screens */
-        width: 100%; /* make sure it fits screen */
+        flex-wrap: wrap;    /* allow links to wrap to next line if too wide */
+        justify-content: flex-end; /* optional, keeps links aligned right */
     }
+}
 
-    .nav ul li {
-        flex: 1 1 auto; /* allow links to shrink if needed */
-        text-align: center;
-    }
+.nav,
+.nav ul,
+.nav .logo {
+    max-width: 100%;
+    box-sizing: border-box;
 }
