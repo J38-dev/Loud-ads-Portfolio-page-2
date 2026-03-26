@@ -50,6 +50,7 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;   /* IMPORTANT */
+flex-wrap: wrap;
 padding:20px 60px;
 background:rgba(255,255,255,0.6);
 backdrop-filter:blur(14px);
@@ -63,6 +64,13 @@ display:block;
 object-fit:contain;
 }
 
+.nav-links{
+display:flex;
+flex-wrap:wrap;        /* allows wrapping */
+justify-content:flex-end;
+max-width:100%;
+}
+
 .nav-links a{
 margin-left:30px;
 text-decoration:none;
@@ -70,6 +78,7 @@ color:black;
 font-weight:600;
 position:relative;
 transition:.3s ease;
+white-space:nowrap;
 }
 
 /* hover color */
@@ -1169,14 +1178,19 @@ max-width:260px;
 
 @media (max-width: 900px){
 
-/* NAV */
-.nav{
+
+  .nav{
 padding:15px 20px;
 }
 
+.nav-links{
+width:100%;
+margin-top:10px;
+justify-content:flex-start;
+}
+
 .nav-links a{
-margin-left:15px;
-font-size:14px;
+margin:5px 15px 5px 0;
 }
 
 /* HERO */
@@ -1392,48 +1406,3 @@ html, body {
 
 /* === FINAL NAV FIX (LOGO RIGHT, NO OVERFLOW) === */
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;          /* keep logo + links on one row */
-  padding: 20px 20px;         /* safe padding */
-  box-sizing: border-box;
-}
-
-/* LINKS ON LEFT */
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;            /* allows wrapping when needed */
-  gap: 12px;
-  max-width: 70%;             /* prevents pushing into logo */
-}
-
-/* REMOVE OLD SPACING THAT CAUSED OVERFLOW */
-.nav-links a {
-  margin: 0;
-  white-space: nowrap;
-}
-
-/* LOGO ON RIGHT */
-.logo {
-  order: 2;                   /* forces logo to the right */
-}
-
-/* LINKS ON LEFT */
-.nav-links {
-  order: 1;
-}
-
-/* MOBILE TUNING */
-@media (max-width: 900px) {
-
-  .nav {
-    padding: 15px;
-  }
-
-  .nav-links {
-    max-width: 65%;           /* forces wrapping sooner */
-  }
-
-}
