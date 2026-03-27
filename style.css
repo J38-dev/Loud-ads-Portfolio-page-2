@@ -1,4 +1,10 @@
 /* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  max-width: 100%;
+}
+
 
 *{
 margin:0;
@@ -1436,5 +1442,54 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === FINAL NAV FIX (LOGO RIGHT, NO OVERFLOW) === */
+/* ===== FINAL MOBILE OVERFLOW FIX (DO NOT TOUCH DESKTOP) ===== */
+@media (max-width:600px){
 
+  /* STOP ANY HORIZONTAL SCROLL */
+  html, body{
+    overflow-x:hidden;
+    width:100%;
+  }
+
+  /* ===== REVIEWS FIX ===== */
+  .reviews{
+    overflow:hidden;
+  }
+
+  .reviews-track{
+    width:auto !important;        /* REMOVE max-content effect */
+    max-width:100vw;              /* NEVER exceed screen */
+  }
+
+  .review-card{
+    min-width:0 !important;       /* REMOVE 320px force */
+    width:85vw;                   /* FIT SCREEN */
+    max-width:85vw;
+  }
+
+  /* ===== CASE IMAGES FIX ===== */
+  .case-images{
+    display:flex !important;      /* override grid */
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .case-images img{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  /* ===== STATS FIX ===== */
+  .stats{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  /* ===== NAV FIX ===== */
+  .nav{
+    padding:15px 20px; /* prevents % overflow */
+  }
+
+}
