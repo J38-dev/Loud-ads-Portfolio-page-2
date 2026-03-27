@@ -1021,16 +1021,6 @@ gap:40px;
 max-width:100%;
 }
 
-/* TEXT SIZES */
-h1{
-  font-size:2rem;
-}
-
-/* 🔥 MAKE HERO BIG */
-.hero-title{
-  font-size:18vw; /* change this number if needed */
-}
-
 h2{
 font-size:1.6rem !important;
 }
@@ -1167,6 +1157,19 @@ font-size:14px;
   /* ===== NAV FIX ===== */
   .nav{
     padding:15px 20px; /* prevents % overflow */
+  }
+
+}
+
+
+  @media (max-width:600px){
+
+  h1{
+    font-size:2rem;
+  }
+
+  .hero-title{
+    font-size:18vw;
   }
 
 }
