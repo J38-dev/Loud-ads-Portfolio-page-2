@@ -1023,7 +1023,12 @@ max-width:100%;
 
 /* TEXT SIZES */
 h1{
-font-size:2rem !important;
+  font-size:2rem;
+}
+
+/* 🔥 MAKE HERO BIG */
+.hero-title{
+  font-size:18vw; /* change this number if needed */
 }
 
 h2{
