@@ -744,14 +744,15 @@ body {
 /* ============================= */
 /* CLEAN WEB APP LAYOUT FIX      */
 /* ============================= */
-
-.case-images{
-  display:grid;
-  grid-template-columns: 1fr 260px;
-  gap:40px;
-  align-items:center;
-  width:100%;
-  margin-top:40px;
+@media (max-width: 600px) {
+  .case-images {
+    display: flex;             /* keep it flex or grid, but flex easier */
+    flex-direction: column;    /* stack images vertically */
+    align-items: center;       /* center them horizontally */
+    gap: 25px;                 /* spacing between images */
+    width: 100%;
+    margin-top: 40px;
+  }
 }
 
 /* LEFT SIDE STACK */
