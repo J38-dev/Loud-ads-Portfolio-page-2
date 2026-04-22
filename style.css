@@ -116,19 +116,21 @@ box-shadow:0 8px 20px rgba(0,0,0,0.08);
 /* ===== HERO ===== */
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding-top:120px; /* 🔥 fixes navbar overlap */
+box-sizing:border-box;
 }
 
 .hero-title{
 font-size:8vw;
 letter-spacing:-2px;
 line-height:1.1;
-padding: 50px;
+padding: 0 15px; /* 🔥 stop huge overflow */
 }
 
 .hero-title span{
@@ -574,6 +576,17 @@ body {
 }
 
 @media(max-width:600px){
+
+  .hero-title{
+font-size:16vw;
+line-height:1.1;
+padding: 0 10px;
+}
+
+.hero{
+padding-top:100px;
+}
+  
   .client-images img {
     flex: 1 1 80%;         /* stacked on very small screens */
     max-width: 80%;
